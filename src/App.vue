@@ -1,12 +1,29 @@
-<script>
-
-export default {
- name:'App',
-};
-</script>
-
 <template>
-  <router-view />
+  <div>
+    <header class="header-slot">
+      <Nav></Nav>
+    </header>
+    <main class="main-slot">
+      <section class="default-container">
+        <router-view />
+      </section>
+    </main>
+    <FooterVue />
+  </div>
 </template>
 
-<style lang="css" scoped></style>
+<script>
+  import FooterVue from "./components/Footer.vue";
+  import Nav from "./components/Nav.vue";
+
+  export default {
+    name: "App",
+    components: { Nav, FooterVue }
+  };
+</script>
+
+<style>
+  header {
+    @apply bg-white py-2 relative;
+  }
+</style>

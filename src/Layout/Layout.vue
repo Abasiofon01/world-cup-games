@@ -1,27 +1,21 @@
 <template>
-  <div>
-    <header class="header-slot">
-      <Nav></Nav>
-    </header>
-    <main class="main-slot">
-      <slot></slot>
-    </main>
-    <FooterVue />
+  <div :class="[wrapperClass]">
+    <h1 class="page-heading">
+      <slot name="title"></slot>
+    </h1>
+    <slot></slot>
   </div>
 </template>
 
 <script>
-import FooterVue from "../components/Footer.vue";
-import Nav from "../components/Nav.vue";
-export default {
-  name: "Layout",
-  components: { Nav, FooterVue },
-};
+  export default {
+    name: "Layout",
+
+    props: {
+      wrapperClass: {
+        type: String,
+        required: true
+      }
+    }
+  };
 </script>
-
-<style scoped>
-header{
-  @apply bg-white py-2 relative ;
-
-}
-</style>
