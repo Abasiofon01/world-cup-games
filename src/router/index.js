@@ -28,6 +28,11 @@ const routes = [
         path: "new",
         name: "new_group",
         component: () => import("../views/GroupForm.vue")
+      },
+      {
+        path: ":id/edit",
+        name: "edit_group",
+        component: () => import("../views/GroupForm.vue")
       }
     ]
   },

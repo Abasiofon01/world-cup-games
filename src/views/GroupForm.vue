@@ -40,14 +40,25 @@
 
     methods: {
       async onSubmit() {
-        const submitFn = this.isEditMode ? () => {} : this.createGroup;
+        const submitFn = this.isEditMode ? this.editGroup : this.createGroup;
 
-        await submitFn(this.form).then(response => {
-          console.log(response);
-        });
+        await submitFn({ form: this.form, id: this.$route.params?.id }).then(
+          response => {
+            console.log(response);
+          }
+        );
       },
 
-      ...mapActions(["createGroup"])
+      ...mapActions(["createGroup", "fetchGroup", "editGroup"])
+    },
+
+    async created() {
+      if (this.isEditMode) {
+        await this.fetchGroup(this.$route.params.id).then(data => {
+          console.log(data);
+          this.form.name = data.name;
+        });
+      }
     }
   };
 </script>

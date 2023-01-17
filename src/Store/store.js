@@ -1,5 +1,4 @@
 import { createStore } from "vuex";
-import axios from "axios";
 import { http } from "../services/axios";
 
 export const store = createStore({
@@ -32,9 +31,19 @@ export const store = createStore({
           return response.data;
         });
     },
-    async createGroup(ctx, form) {
+    async createGroup(ctx, { form }) {
       return http.post("groups", form).then(response => {
         return response.data;
+      });
+    },
+    async editGroup(ctx, { form, id }) {
+      return http.put(`groups/${id}`, form).then(response => {
+        return response.data;
+      });
+    },
+    async fetchGroup(ctx, id) {
+      return http.get(`groups/${id}`).then(response => {
+        return response.data.data;
       });
     },
     async getTeams({ commit }) {
