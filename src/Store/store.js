@@ -5,15 +5,15 @@ import { http } from "../services/axios";
 export const store = createStore({
   state: {
     posts: [],
-    teams: [],
+    teams: []
   },
   getters: {
-    posts: (state) => {
+    posts: state => {
       return state.posts;
     },
-    teams: (state) => {
+    teams: state => {
       return state.teams;
-    },
+    }
   },
   mutations: {
     SET_ITEMS(state, posts) {
@@ -21,16 +21,21 @@ export const store = createStore({
     },
     SET_TEAMS(state, teams) {
       state.teams = teams;
-    },
+    }
   },
   actions: {
     async loadPosts({ commit }) {
       return http
         .get("http://jsonplaceholder.typicode.com/posts")
-        .then((response) => {
+        .then(response => {
           commit("SET_ITEMS", response.data);
           return response.data;
         });
+    },
+    async createGroup(ctx, form) {
+      return http.post("groups", form).then(response => {
+        return response.data;
+      });
     },
     async getTeams({ commit }) {
       try {
@@ -39,6 +44,6 @@ export const store = createStore({
       } catch (error) {
         console.log(error);
       }
-    },
-  },
+    }
+  }
 });
