@@ -10,7 +10,7 @@
       <span @click="ShowMenu()" class="show-menu-btn-wrapper">
         <i :class="[open ? 'uil uil-times' : 'uil uil-bars']"></i>
       </span>
-      <ul class="nav-links-wrapper" :class="[open ? 'left-0' : 'left-[-100%]']">
+      <ul class="nav-links-wrapper" :class="[open ? 'left-0' : 'left-[-200%]']">
         <li class="nav-links" v-for="link in links" @click="ShowMenu()">
           <router-link :to="link.link">
             {{ link.name }}
