@@ -5,19 +5,44 @@
   >
     <template #title> teams </template>
     <div class="teams">
-      <Team />
+      <Team
+        :team-data="team"
+        v-for="team in allTeams"
+        :key="team.country"
+        class="team"
+      />
     </div>
   </Layout>
 </template>
 <script>
   import Team from "../components/Team.vue";
   import Layout from "../Layout/Layout.vue";
+  import { mapActions } from "vuex";
   export default {
     name: "Teams",
 
     components: {
       Team,
       Layout
+    },
+
+    data() {
+      return {
+        allTeams: []
+      };
+    },
+
+    methods: {
+      ...mapActions(["fetchAllTeams"])
+    },
+
+    async created() {
+      await this.fetchAllTeams().then(
+        (/** @type {{data: Array<{id: string; name: string}>}} */ data) => {
+          console.log(data);
+          this.allTeams = data.data.map(team => team);
+        }
+      );
     }
   };
 </script>

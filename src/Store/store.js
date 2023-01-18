@@ -62,6 +62,12 @@ export const store = createStore({
         //   commit("GET_TEAM", response.data.data);
         return response.data.data;
       });
+    },
+
+    async fetchAllTeams(ctx) {
+      return http.get("teams").then(response => {
+        return response.data.data;
+      });
     }
   }
 });
