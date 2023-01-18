@@ -1,10 +1,13 @@
 <template>
-  <Layout wrapperClass="tables-wrapper">
-    <template #title> STANDINGS </template>
+    <Layout
+    @create-new="$router.push({ name: 'new_group' })"
+    wrapperClass="tables-wrapper"
+  >
+    <template #title> standings </template>
 
-    <div class="tables">
-      <TableVue />
-    </div>
+  <div class="tables">
+    <TableVue />
+  </div>
   </Layout>
 </template>
 
