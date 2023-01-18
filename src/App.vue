@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="header-slot">
+    <header>
       <Nav></Nav>
     </header>
     <main class="main-slot">
