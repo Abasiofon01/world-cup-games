@@ -4,7 +4,7 @@
       <slot name="title"></slot>
     </h1>
 
-    <button v-if="showNewBtn" type="button" @click="createNew">New</button>
+    <button id="btn" v-if="showNewBtn" type="button" @click="createNew">New</button>
 
     <slot></slot>
   </div>
@@ -32,3 +32,15 @@
     }
   };
 </script>
+
+<style scoped>
+#btn{
+  padding: 5px 20px;
+  color: #830542;
+  background-color: white;
+  border-radius: 4px;
+  align-self: center;
+  display: inline;
+  margin-bottom: 18px;
+}
+</style>
