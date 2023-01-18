@@ -1,14 +1,18 @@
 <template>
-  <Layout>
-    <section class="default-container">
-      <div class="matches-container">
-        <h1 class="page-heading">MATCHES AND RESULTS</h1>
-        <div class="matches">
-          <Match />
-        </div>
-      </div>
-    </section>
+
+<Layout
+    @create-new="$router.push({ name: 'new_group' })"
+    wrapperClass="matches-container"
+  >
+    <template #title> Matches and results </template>
+
+    <div class="matches">
+      <Match />
+    </div>
+    
   </Layout>
+
+  
 </template>
 <script>
 import Match from "../components/Match.vue";
