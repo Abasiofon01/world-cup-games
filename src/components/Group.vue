@@ -2,7 +2,7 @@
   <div class="double-group">
     <div class="group">
       <p class="group-heading">Group A</p>
-      <div class="team">
+      <div id="team">
         <div v-for="team in groupA" class="img-and-country">
           <img :src="team.flag" :alt="team.country" />
           <p class="country">{{ team.country }}</p>
@@ -11,7 +11,7 @@
     </div>
     <div class="group">
       <p class="group-heading">Group B</p>
-      <div class="team">
+      <div id="team">
         <div v-for="team in groupB" class="img-and-country">
           <img :src="team.flag" :alt="team.country" />
           <p class="country">{{ team.country }}</p>
@@ -22,7 +22,7 @@
   <div class="double-group">
     <div class="group">
       <p class="group-heading">Group C</p>
-      <div class="team">
+      <div id="team">
         <div v-for="team in groupC" class="img-and-country">
           <img :src="team.flag" :alt="team.country" />
           <p class="country">{{ team.country }}</p>
@@ -31,7 +31,7 @@
     </div>
     <div class="group">
       <p class="group-heading">Group D</p>
-      <div class="team">
+      <div id="team">
         <div v-for="team in groupD" class="img-and-country">
           <img :src="team.flag" :alt="team.country" />
           <p class="country">{{ team.country }}</p>
@@ -42,7 +42,7 @@
   <div class="double-group">
     <div class="group">
       <p class="group-heading">Group E</p>
-      <div class="team">
+      <div id="team">
         <div v-for="team in groupE" class="img-and-country">
           <img :src="team.flag" :alt="team.country" />
           <p class="country">{{ team.country }}</p>
@@ -51,7 +51,7 @@
     </div>
     <div class="group">
       <p class="group-heading">Group F</p>
-      <div class="team">
+      <div id="team">
         <div v-for="team in groupF" class="img-and-country">
           <img :src="team.flag" :alt="team.country" />
           <p class="country">{{ team.country }}</p>
@@ -62,7 +62,7 @@
   <div class="double-group">
     <div class="group">
       <p class="group-heading">Group G</p>
-      <div class="team">
+      <div id="team">
         <div v-for="team in groupG" class="img-and-country">
           <img :src="team.flag" :alt="team.country" />
           <p class="country">{{ team.country }}</p>
@@ -71,7 +71,7 @@
     </div>
     <div class="group">
       <p class="group-heading">Group H</p>
-      <div class="team">
+      <div id="team">
         <div v-for="team in groupH" class="img-and-country">
           <img :src="team.flag" :alt="team.country" />
           <p class="country">{{ team.country }}</p>
@@ -117,7 +117,7 @@ export default {
   },
 };
 </script>
-<style lang="css" scoped>
+<style lang="css">
 .double-group {
   @apply grid grid-cols-2 gap-3;
 }
@@ -139,31 +139,10 @@ export default {
   font-weight: bold;
 }
 
-.team {
+#team {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.img-and-country {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  gap: 8px;
-  border-radius: 3.34px;
-  padding: 9px;
-}
-
-.img-and-country img {
-  width: 29px;
-  height: 18px;
-}
-
-@media (max-width: 320px) {
-  .team img {
-    width: 20.75px;
-    height: 14.3px;
-  }
 }
 
 .group {
