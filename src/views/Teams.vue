@@ -1,13 +1,12 @@
 <template>
-  <Layout>
-    <section class="default-container">
-      <div class="team-wrapper">
-        <h1 class="page-heading">TEAMS</h1>
-        <div class="teams">
-          <Team />
-        </div>
-      </div>
-    </section>
+  <Layout
+    @create-new="$router.push({ name: 'new_group' })"
+    wrapperClass="team-wrapper"
+  >
+    <template #title> teams </template>
+    <div class="teams">
+      <Team />
+    </div>
   </Layout>
 </template>
 <script>
@@ -18,8 +17,8 @@ export default {
 
   components: {
     Team,
-    Layout
-},
+    Layout,
+  },
 };
 </script>
 <style lang="css" scoped>
