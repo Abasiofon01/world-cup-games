@@ -59,9 +59,10 @@ nav {
 }
 
 .nav-links-wrapper {
-  @apply bg-white h-screen items-center flex flex-col gap-5 p-7 md:p-0 absolute duration-300 ease-in;
+  @apply bg-white h-screen items-center flex flex-col gap-5 p-7 absolute duration-300 ease-in;
   top: 4rem;
   width: 100%;
+  z-index: 50;
 }
 
 .nav-links {
