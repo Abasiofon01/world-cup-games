@@ -75,22 +75,27 @@
     },
 
     async created() {
-      if (this.isEditMode) {
-        await this.fetchTeam(this.$route.params.id).then(data => {
-          console.log(data);
-          this.form.name = data.name;
-        });
-      }
+      const allGroupsPromise = this.fetchAllGroups();
+      const fetchTeamPromise = this.fetchTeam(this.$route.params.id);
 
-      await this.fetchAllGroups().then(
-        (/** @type {{data: Array<{id: string; name: string}>}} */ data) => {
-          console.log(data);
-          this.groupsForSelect = data.data.map(group => ({
-            id: group.id,
-            name: group.name
-          }));
+      /** @typedef {[{data: Array<{id: string; name: string}>}, {name: string; id: string; group_id: string}]} ResultArray */
+
+      await Promise.all([
+        allGroupsPromise,
+        this.isEditMode && fetchTeamPromise
+      ]).then((/** @type {ResultArray} */ [allGroupsData, teamData]) => {
+        console.log(allGroupsData);
+        this.groupsForSelect = allGroupsData.data.map(group => ({
+          id: group.id,
+          name: group.name
+        }));
+
+        if (this.isEditMode) {
+          console.log(teamData);
+          this.form.name = teamData.name;
+          this.form.group_id = teamData.group_id;
         }
-      );
+      });
     }
   };
 </script>
