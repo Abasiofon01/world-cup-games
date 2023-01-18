@@ -1,111 +1,130 @@
 <template>
-    <Layout :showNewBtn="false" wrapperClass="form-wrapper">
-      <template #title> {{ headerTitle }} </template>
-  
-      <form>
-        <div class="group-name-wrapper">
-            <label for="group_name">Team Name</label>
-            <input v-model="form.name" id="group_name" type="text" />
-        </div>
-      
-        <select v-model="form.group">
-          <option disabled value="">Select group</option>
-          <option>a</option>
-        </select>
+  <Layout :showNewBtn="false" wrapperClass="form-wrapper">
+    <template #title> {{ headerTitle }} </template>
+
+    <form>
+      <div class="group-name-wrapper">
+        <label for="group_name">Team Name</label>
+        <input v-model="form.name" id="group_name" type="text" />
+      </div>
+
+      <select v-model="form.group_id">
+        <option
+          v-for="group in groupsForSelect"
+          :key="`group_${group.id}`"
+          :value="group.id"
+        >
+          {{ group.name }}
+        </option>
+      </select>
     </form>
 
-    <button id="btn"  @click.prevent="onSubmit">{{ headerTitle }}</button>
+    <button id="btn" @click.prevent="onSubmit">{{ headerTitle }}</button>
+  </Layout>
+</template>
 
+<script>
+  import Layout from "../Layout/Layout.vue";
+  import { mapActions } from "vuex";
 
+  export default {
+    name: "TeamForm",
 
-    </Layout>
-  </template>
-  
-  <script>
-    import Layout from "../Layout/Layout.vue";
-    import { mapActions } from "vuex";
-  
-    export default {
-      name: "GroupForm",
-  
-      data() {
-        return {
-          form: {
-            name: "",
-            group:""
-          }
-        };
-      },
-  
-      components: {
-        Layout
-      },
-  
-      computed: {
-        isEditMode() {
-          return this.$route.name === "edit_team";
+    data() {
+      return {
+        form: {
+          name: "",
+          group_id: ""
         },
-  
-        headerTitle() {
-          return this.isEditMode ? "Edit Team" : "Create Team";
-        }
+        groupsForSelect: []
+      };
+    },
+
+    components: {
+      Layout
+    },
+
+    computed: {
+      isEditMode() {
+        return this.$route.name === "edit_team";
       },
-  
-      methods: {
-        async onSubmit() {
-          const submitFn = this.isEditMode ? this.editTeam : this.createTeam;
-  
-          await submitFn({ form: this.form, id: this.$route.params?.id }).then(
-            response => {
-              console.log(response);
-            }
-          );
-        },
-  
-        ...mapActions(["fetchGroup","createTeam", "fetchTeam", "editTeam"])
-      },
-  
-      async created() {
-        if (this.isEditMode) {
-          await this.fetchTeam(this.$route.params.id).then(data => {
-            console.log(data);
-            this.form.name = data.name;
-          });
-        }
+
+      headerTitle() {
+        return this.isEditMode ? "Edit Team" : "Create Team";
       }
-    };
-  </script>
+    },
+
+    methods: {
+      async onSubmit() {
+        const submitFn = this.isEditMode ? this.editTeam : this.createTeam;
+
+        await submitFn({ form: this.form, id: this.$route.params?.id }).then(
+          response => {
+            console.log(response);
+          }
+        );
+      },
+
+      ...mapActions([
+        "fetchGroup",
+        "createTeam",
+        "fetchTeam",
+        "editTeam",
+        "fetchAllGroups"
+      ])
+    },
+
+    async created() {
+      if (this.isEditMode) {
+        await this.fetchTeam(this.$route.params.id).then(data => {
+          console.log(data);
+          this.form.name = data.name;
+        });
+      }
+
+      await this.fetchAllGroups().then(
+        (/** @type {{data: Array<{id: string; name: string}>}} */ data) => {
+          console.log(data);
+          this.groupsForSelect = data.data.map(group => ({
+            id: group.id,
+            name: group.name
+          }));
+        }
+      );
+    }
+  };
+</script>
 
 <style scoped>
-.group-name-wrapper{
- color: white;
-}
+  .group-name-wrapper {
+    color: white;
+  }
 
-.group-name-wrapper input{
+  .group-name-wrapper input {
     margin-left: 10px;
     border-color: none;
     color: #830542;
-}
-form{
+  }
+  form {
     display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: center;
-}
+  }
 
-select{
-    padding:2px 6px;
+  select {
+    padding: 2px 6px;
     border: none;
     color: #830542;
-}
+  }
 
-#btn{
-  padding: 5px 20px;
-  color: #830542;
-  background-color: white;
-  border-radius: 4px;
-  display: block;
-  margin-bottom: 18px;
-  margin: 10px auto;
-}
+  #btn {
+    padding: 5px 20px;
+    color: #830542;
+    background-color: white;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 18px;
+    margin: 10px auto;
+  }
 </style>
