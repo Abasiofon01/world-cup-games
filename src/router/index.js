@@ -12,8 +12,23 @@ const routes = [
 
   {
     path: "/teams",
-    name: "Teams",
-    component: Teams
+    children: [
+      {
+        path: "",
+        name: "Teams",
+        component: () => import("../views/Teams.vue")
+      },
+      {
+        path: "new",
+        name: "new_team",
+        component: () => import("../views/TeamForm.vue")
+      },
+      {
+        path: ":id/edit",
+        name: "edit_team",
+        component: () => import("../views/TeamForm.vue")
+      }
+    ]
   },
 
   {
