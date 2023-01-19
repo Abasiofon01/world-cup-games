@@ -148,9 +148,4 @@ export default {
 .group {
   gap: 6px;
 }
-.country {
-  font-size: clamp(0.75rem, 0.6291rem + 0.7737vw, 1rem);
-  color: #830542;
-  font-weight: bold;
-}
 </style>
