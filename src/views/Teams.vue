@@ -35,8 +35,20 @@ export default {
   async created() {
     await this.fetchAllTeams().then(
       (/** @type {{data: Array<{id: string; name: string}>}} */ data) => {
-        console.log(data);
-        this.allTeams = data.data.map((team) => team);
+        this.allTeams = data.data
+          .map((team) => team)
+          .sort((a, b) => {
+            const nameA = a.name.toUpperCase();
+            const nameB = b.name.toUpperCase();
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+          });
+        console.log(this.allTeams);
       }
     );
   },
