@@ -2,6 +2,7 @@
   <Layout
     @create-new="$router.push({ name: 'new_group' })"
     wrapperClass="groups-wrapper"
+    :showBackBtn="false"
   >
     <template #title> Groups </template>
 

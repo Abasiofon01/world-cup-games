@@ -2,6 +2,7 @@
   <Layout
     @create-new="$router.push({ name: 'new_team' })"
     wrapperClass="team-wrapper"
+    :showBackBtn="false"
   >
     <template #title> teams </template>
     <div class="teams">
