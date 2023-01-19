@@ -2,23 +2,6 @@ import { createStore } from "vuex";
 import { http } from "../services/axios";
 
 export const store = createStore({
-  //   state: {
-  //     group: [],
-  //   },
-
-  //   getters: {
-  //     group: state => {
-  //       return state.group;
-  //     },
-  //   },
-
-  //   mutations: {
-  //     GET_GROUP(state, group) {
-  //       state.group = group;
-  //     },
-
-  //   },
-
   actions: {
     async createGroup(ctx, { form }) {
       return http.post("groups", form).then((response) => {
@@ -34,7 +17,6 @@ export const store = createStore({
 
     async fetchGroup(ctx, id) {
       return http.get(`groups/${id}`).then((response) => {
-        //   commit("GET_GROUP", response.data.data);
         return response.data.data;
       });
     },
@@ -59,7 +41,6 @@ export const store = createStore({
 
     async fetchTeam(ctx, id) {
       return http.get(`teams/${id}`).then((response) => {
-        //   commit("GET_TEAM", response.data.data);
         return response.data.data;
       });
     },
