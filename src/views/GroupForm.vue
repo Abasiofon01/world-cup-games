@@ -1,5 +1,9 @@
 <template>
-  <Layout :showNewBtn="false" wrapperClass="form-wrapper">
+  <Layout
+    :showNewBtn="false"
+    wrapperClass="form-wrapper"
+    @go-back="$router.push({ name: 'Groups' })"
+  >
     <template #title> {{ headerTitle }} </template>
 
     <form @submit.prevent="onSubmit">
@@ -81,6 +85,6 @@ form label {
 
 form input {
   border-radius: 4px;
-  padding: 2px 6px;
+  padding: 5px;
 }
 </style>

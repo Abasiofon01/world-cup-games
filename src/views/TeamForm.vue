@@ -1,5 +1,9 @@
 <template>
-  <Layout :showNewBtn="false" wrapperClass="form-wrapper">
+  <Layout
+    :showNewBtn="false"
+    wrapperClass="form-wrapper"
+    @go-back="$router.push({ name: 'Teams' })"
+  >
     <template #title> {{ headerTitle }} </template>
 
     <form>
