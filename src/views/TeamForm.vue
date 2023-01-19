@@ -146,7 +146,7 @@ form {
 #btn {
   padding: 5px 20px;
   color: #830542;
-  background-color: white;
+  background-color: gainsboro;
   border-radius: 4px;
   display: block;
   margin: 20px auto;

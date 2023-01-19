@@ -39,7 +39,7 @@ export default {
 #btn {
   padding: 5px 20px;
   color: #830542;
-  background-color: white;
+  background-color: gainsboro;
   border-radius: 4px;
   align-self: center;
   display: inline;

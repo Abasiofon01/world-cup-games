@@ -24,6 +24,7 @@ export default {
 
 <style>
 header {
-  @apply bg-white py-2 relative;
+  @apply py-2 relative;
+  background-color: gainsboro;
 }
 </style>

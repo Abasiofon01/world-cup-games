@@ -58,8 +58,9 @@ nav {
 }
 
 .nav-links-wrapper {
-  @apply bg-white h-screen items-center flex flex-col gap-5 p-7 absolute duration-300 ease-in;
-  top: 4rem;
+  @apply h-screen items-center flex flex-col gap-5 p-7 absolute duration-300 ease-in;
+  top: 4.2rem;
+  background-color: gainsboro;
   width: 100%;
   z-index: 50;
 }

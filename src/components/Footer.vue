@@ -35,7 +35,7 @@ export default {
 <style lang="css" scoped>
 footer {
   @apply py-2;
-  background-color: white;
+  background-color: gainsboro;
   margin-top: 2rem;
 }
 
