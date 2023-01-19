@@ -72,6 +72,7 @@ export default {
   border-radius: 50%;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 #back_icon {
