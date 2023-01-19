@@ -84,14 +84,13 @@ export default {
   },
 
   async created() {
-    const allGroupsPromise = this.fetchAllGroups();
-    const fetchTeamPromise = this.fetchTeam(this.$route.params.id);
-
+    const allGroupsPromise = this.fetchAllGroups;
+    const fetchTeamPromise = this.fetchTeam;
     /** @typedef {[{data: Array<{id: string; name: string}>}, {name: string; id: string; group_id: string}]} ResultArray */
 
     await Promise.all([
-      allGroupsPromise,
-      this.isEditMode && fetchTeamPromise,
+      allGroupsPromise(),
+      this.isEditMode ? fetchTeamPromise(this.$route.params.id) : undefined,
     ]).then((/** @type {ResultArray} */ [allGroupsData, teamData]) => {
       console.log(allGroupsData);
       this.groupsForSelect = allGroupsData.data.map((group) => ({
@@ -125,8 +124,8 @@ export default {
 
 .name-input-wrapper input,
 select {
-  margin: 5px 0 0 10px;
-  padding: 2px 6px;
+  margin: 5px 0 0 0;
+  padding: 6px;
   border: none;
   color: #830542;
   border-radius: 4px;
