@@ -7,7 +7,7 @@ const routes = [
     name: "home",
     redirect() {
       return { name: "Teams" };
-    }
+    },
   },
 
   {
@@ -16,19 +16,19 @@ const routes = [
       {
         path: "",
         name: "Teams",
-        component: () => import("../views/Teams.vue")
+        component: () => import("../views/Teams.vue"),
       },
       {
         path: "new",
         name: "new_team",
-        component: () => import("../views/TeamForm.vue")
+        component: () => import("../views/TeamForm.vue"),
       },
       {
         path: ":id/edit",
         name: "edit_team",
-        component: () => import("../views/TeamForm.vue")
-      }
-    ]
+        component: () => import("../views/TeamForm.vue"),
+      },
+    ],
   },
 
   {
@@ -37,19 +37,19 @@ const routes = [
       {
         path: "",
         name: "Groups",
-        component: () => import("../views/Groups.vue")
+        component: () => import("../views/Groups.vue"),
       },
       {
         path: "new",
         name: "new_group",
-        component: () => import("../views/GroupForm.vue")
+        component: () => import("../views/GroupForm.vue"),
       },
       {
         path: ":id/edit",
         name: "edit_group",
-        component: () => import("../views/GroupForm.vue")
-      }
-    ]
+        component: () => import("../views/GroupForm.vue"),
+      },
+    ],
   },
 
   {
@@ -59,7 +59,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Matches.vue")
+      import(/* webpackChunkName: "about" */ "../views/Matches.vue"),
   },
 
   {
@@ -69,11 +69,11 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Standings.vue")
-  }
+      import(/* webpackChunkName: "about" */ "../views/Standings.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 });
 export default router;

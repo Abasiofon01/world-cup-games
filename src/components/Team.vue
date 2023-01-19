@@ -7,7 +7,7 @@
       type="button"
       @click="$router.push({ name: 'edit_team', params: { id: teamData.id } })"
     >
-      Edit
+      <i class="uil uil-edit" title="edit"></i>
     </button>
   </div>
 </template>

@@ -1,6 +1,5 @@
 <template>
-
-<Layout
+  <Layout
     @create-new="$router.push({ name: 'new_group' })"
     wrapperClass="matches-container"
   >
@@ -9,10 +8,7 @@
     <div class="matches">
       <Match />
     </div>
-    
   </Layout>
-
-  
 </template>
 <script>
 import Match from "../components/Match.vue";
@@ -21,7 +17,8 @@ export default {
   names: "Matches",
 
   components: {
-    Match, Layout
+    Match,
+    Layout,
   },
 };
 </script>

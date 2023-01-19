@@ -4,37 +4,39 @@
       <slot name="title"></slot>
     </h1>
 
-    <button id="btn" v-if="showNewBtn" type="button" @click="createNew">New</button>
+    <button id="btn" v-if="showNewBtn" type="button" @click="createNew">
+      New
+    </button>
 
     <slot></slot>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "Layout",
+export default {
+  name: "Layout",
 
-    props: {
-      wrapperClass: {
-        type: String,
-        required: true
-      },
-      showNewBtn: {
-        type: Boolean,
-        default: true
-      }
+  props: {
+    wrapperClass: {
+      type: String,
+      required: true,
     },
+    showNewBtn: {
+      type: Boolean,
+      default: true,
+    },
+  },
 
-    methods: {
-      createNew() {
-        this.$emit("create-new");
-      }
-    }
-  };
+  methods: {
+    createNew() {
+      this.$emit("create-new");
+    },
+  },
+};
 </script>
 
 <style scoped>
-#btn{
+#btn {
   padding: 5px 20px;
   color: #830542;
   background-color: white;

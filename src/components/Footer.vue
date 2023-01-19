@@ -30,7 +30,7 @@ export default {
     ];
     return { links };
   },
-}
+};
 </script>
 <style lang="css" scoped>
 footer {

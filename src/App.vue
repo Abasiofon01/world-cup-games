@@ -13,17 +13,17 @@
 </template>
 
 <script>
-  import FooterVue from "./components/Footer.vue";
-  import Nav from "./components/Nav.vue";
+import FooterVue from "./components/Footer.vue";
+import Nav from "./components/Nav.vue";
 
-  export default {
-    name: "App",
-    components: { Nav, FooterVue }
-  };
+export default {
+  name: "App",
+  components: { Nav, FooterVue },
+};
 </script>
 
 <style>
-  header {
-    @apply bg-white py-2 relative;
-  }
+header {
+  @apply bg-white py-2 relative;
+}
 </style>

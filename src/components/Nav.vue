@@ -1,23 +1,22 @@
 <template>
   <nav class="default-container">
-      <div class="logo-wrapper">
-        <img
-          src="../assets/world-cup-2022-logo.png"
-          alt=" world cup logo 2022"
-          class="logo"
-        />
-      </div>
-      <span @click="ShowMenu()" class="show-menu-btn-wrapper">
-        <i :class="[open ? 'uil uil-times' : 'uil uil-bars']"></i>
-      </span>
-      <ul class="nav-links-wrapper" :class="[open ? 'left-0' : 'left-[-200%]']">
-        <li class="nav-links" v-for="link in links" @click="ShowMenu()">
-          <router-link :to="link.link">
-            {{ link.name }}
-          </router-link>
-        </li>
-      </ul>
-    
+    <div class="logo-wrapper">
+      <img
+        src="../assets/world-cup-2022-logo.png"
+        alt=" world cup logo 2022"
+        class="logo"
+      />
+    </div>
+    <span @click="ShowMenu()" class="show-menu-btn-wrapper">
+      <i :class="[open ? 'uil uil-times' : 'uil uil-bars']"></i>
+    </span>
+    <ul class="nav-links-wrapper" :class="[open ? 'left-0' : 'left-[-200%]']">
+      <li class="nav-links" v-for="link in links" @click="ShowMenu()">
+        <router-link :to="link.link">
+          {{ link.name }}
+        </router-link>
+      </li>
+    </ul>
   </nav>
 </template>
 <script>
