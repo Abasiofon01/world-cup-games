@@ -2,6 +2,7 @@
   <Layout
     @create-new="$router.push({ name: 'new_group' })"
     wrapperClass="matches-container"
+    :showBackBtn="false"
   >
     <template #title> Matches and results </template>
 
