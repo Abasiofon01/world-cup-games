@@ -18,6 +18,19 @@
             >
               <img :src="team.flag" :alt="team.name" />
               <p class="country">{{ team.name }}</p>
+              <button
+                data-title="Edit"
+                id="btn"
+                type="button"
+                @click="
+                  $router.push({
+                    name: 'edit_group',
+                    params: { id: group.id },
+                  })
+                "
+              >
+                <i class="uil uil-edit"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -41,6 +54,8 @@ export default {
         type: Array,
         required: true,
       },
+
+      groupById: [],
     };
   },
 
@@ -51,7 +66,9 @@ export default {
   async created() {
     await this.fetchAllGroups().then((allGroupsData) => {
       this.allGroups = allGroupsData.data;
-      console.log(this.allGroups);
+      this.getId = this.allGroups.map((group) => {
+        return group;
+      });
     });
   },
 };
