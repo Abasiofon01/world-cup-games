@@ -54,8 +54,6 @@ export default {
         type: Array,
         required: true,
       },
-
-      groupById: [],
     };
   },
 
@@ -65,10 +63,8 @@ export default {
 
   async created() {
     await this.fetchAllGroups().then((allGroupsData) => {
+      console.log(allGroupsData);
       this.allGroups = allGroupsData.data;
-      this.getId = this.allGroups.map((group) => {
-        return group;
-      });
     });
   },
 };
