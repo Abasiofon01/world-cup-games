@@ -50,5 +50,35 @@ export const store = createStore({
         return response.data.data;
       });
     },
+
+    async createMatch(ctx, { form }) {
+      return http.post("matches", form).then((response) => {
+        return response.data;
+      });
+    },
+
+    async editMatch(ctx, { form, id }) {
+      return http.put(`matches/${id}`, form).then((response) => {
+        return response.data;
+      });
+    },
+
+    async fetchMatch(ctx, id) {
+      return http.get(`matches/${id}`).then((response) => {
+        return response.data.data;
+      });
+    },
+
+    async deleteMatch(ctx, id) {
+      return http.delete(`matches/${id}`).then((response) => {
+        return response.data.data;
+      });
+    },
+
+    async fetchAllMatches(ctx) {
+      return http.get("matches").then((response) => {
+        return response.data.data;
+      });
+    },
   },
 });
