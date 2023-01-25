@@ -96,7 +96,6 @@ export default {
       allGroupsPromise(),
       this.isEditMode ? fetchTeamPromise(this.$route.params.id) : undefined,
     ]).then((/** @type {ResultArray} */ [allGroupsData, teamData]) => {
-      console.log(allGroupsData);
       this.groupsForSelect = allGroupsData.data.map((group) => ({
         id: group.id,
         name: group.name,

@@ -67,7 +67,6 @@ export default {
 
   async created() {
     await this.fetchAllGroups().then((allGroupsData) => {
-      console.log(allGroupsData);
       this.allGroups = allGroupsData.data;
     });
   },

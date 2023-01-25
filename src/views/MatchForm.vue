@@ -71,14 +71,10 @@ export default {
     return {
       form: {
         group_id: "",
-
         team_ids: [],
-        // team1_id: "",
-        // team2_id: "",
         match_date: "",
         start_time: "",
       },
-      selectedGroup: null,
       groupsForSelect: [],
       teams: [],
     };
@@ -127,7 +123,6 @@ export default {
       allGroupsPromise(),
       this.isEditMode ? fetchMatchPromise(this.$route.params.id) : undefined,
     ]).then((/** @type {ResultArray} */ [allGroupsData, matchData]) => {
-      console.log(allGroupsData.data);
       this.groupsForSelect = allGroupsData.data.map((group) => ({
         id: group.id,
         name: group.name,
@@ -137,8 +132,6 @@ export default {
       if (this.isEditMode) {
         console.log(matchData);
         this.form.group_id = matchData.group_id;
-        this.form.team1_id = matchData.team_id;
-        this.form.team2_id = matchData.team_id;
         this.form.match_date = matchData.match_date;
         this.form.start_time = matchData.start_time;
       }

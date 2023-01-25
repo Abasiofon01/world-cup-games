@@ -91,7 +91,6 @@ export default {
       allMatchesPromise(),
       this.isEditMode ? fetchResultPromise(this.$route.params.id) : undefined,
     ]).then((/** @type {ResultArray} */ [allMatchesData, resultsData]) => {
-      console.log(allMatchesData.data);
       this.matchesForSelect = allMatchesData.data.map((match) => ({
         id: match.id,
       }));

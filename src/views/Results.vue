@@ -29,7 +29,6 @@ export default {
 
   async created() {
     await this.fetchAllResults().then((allResultsData) => {
-      console.log(allResultsData);
       this.allResults = allResultsData.data;
     });
   },

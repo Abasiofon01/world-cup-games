@@ -48,7 +48,6 @@ export default {
             }
             return 0;
           });
-        console.log(this.allTeams);
       }
     );
   },

@@ -69,7 +69,6 @@ export default {
   async created() {
     await this.fetchAllResults().then((allResultsData) => {
       this.allResults = allResultsData.data;
-      // console.log(this.allResults);
     });
 
     this.groupedResults = Object.entries(
@@ -109,8 +108,6 @@ export default {
         {}
       )
     ).map(([name, results]) => ({ name, results }));
-
-    // console.log(this.groupedResults);
   },
 };
 </script>
