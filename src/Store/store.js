@@ -69,14 +69,32 @@ export const store = createStore({
       });
     },
 
-    async deleteMatch(ctx, id) {
-      return http.delete(`matches/${id}`).then((response) => {
+    async fetchAllMatches(ctx) {
+      return http.get("matches?page=1&per_page=50").then((response) => {
         return response.data.data;
       });
     },
 
-    async fetchAllMatches(ctx) {
-      return http.get("matches").then((response) => {
+    async createResult(ctx, { form }) {
+      return http.post("results", form).then((response) => {
+        return response.data;
+      });
+    },
+
+    async editResult(ctx, { form, id }) {
+      return http.put(`results/${id}`, form).then((response) => {
+        return response.data;
+      });
+    },
+
+    async fetchResult(ctx, id) {
+      return http.get(`results/${id}`).then((response) => {
+        return response.data.data;
+      });
+    },
+
+    async fetchAllResults(ctx) {
+      return http.get("results?page=1&per_page=50").then((response) => {
         return response.data.data;
       });
     },
