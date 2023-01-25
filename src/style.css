@@ -78,3 +78,12 @@ body {
   scale: 120%;
   font-weight: 700;
 }
+
+.matches-wrapper #btn{
+  background-color: #830542;
+  margin-left:auto;
+}
+.matches-wrapper #btn:hover {
+  scale: 120%;
+  font-weight: 700;
+}
