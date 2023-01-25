@@ -9,7 +9,24 @@
     <div class="groups">
       <div class="double-group">
         <div v-for="group in allGroups" :key="group.name">
-          <p class="group-heading">group {{ group.name }}</p>
+          <div class="group-heading-wrapper">
+            <p class="group-heading">group {{ group.name }}</p>
+
+            <button
+              data-title="Edit"
+              id="btn"
+              type="button"
+              @click="
+                $router.push({
+                  name: 'edit_group',
+                  params: { id: group.name },
+                })
+              "
+            >
+              <i class="uil uil-edit"></i>
+            </button>
+          </div>
+
           <div id="team">
             <div
               v-for="team in group.teams"
@@ -18,19 +35,6 @@
             >
               <img :src="team.flag" :alt="team.name" />
               <p class="country">{{ team.name }}</p>
-              <button
-                data-title="Edit"
-                id="btn"
-                type="button"
-                @click="
-                  $router.push({
-                    name: 'edit_group',
-                    params: { id: group.id },
-                  })
-                "
-              >
-                <i class="uil uil-edit"></i>
-              </button>
             </div>
           </div>
         </div>
@@ -107,6 +111,10 @@ export default {
   .double-group {
     @apply grid-cols-1;
   }
+}
+
+.group-heading-wrapper {
+  display: flex;
 }
 
 .group-heading {
