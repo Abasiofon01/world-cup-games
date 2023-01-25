@@ -8,7 +8,7 @@
 
     <div class="groups">
       <div class="double-group">
-        <div v-for="group in allGroups" :key="group.name">
+        <div v-for="group in allGroups" :key="`group_${group.id}`">
           <div class="group-heading-wrapper">
             <p class="group-heading">group {{ group.name }}</p>
 
