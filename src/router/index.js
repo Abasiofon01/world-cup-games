@@ -66,7 +66,7 @@ const routes = [
       },
       {
         path: ":id/edit",
-        name: "edit_group",
+        name: "edit_match",
         component: () => import("../views/MatchForm.vue"),
       },
     ],
