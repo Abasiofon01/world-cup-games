@@ -14,7 +14,7 @@
             </router-link>
           </li>
         </ul>
-        <p>&copy; 2022</p>
+        <p class="copyright">&copy; 2022</p>
       </div>
     </div>
   </footer>
@@ -46,15 +46,23 @@ footer {
 }
 
 .logo {
-  align-self: start;
+  align-self: center;
 }
 .footer-links-wrapper {
-  @apply flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-links {
   @apply font-bold m-2;
   color: #830542;
   font-size: clamp(0.75rem, 0.6291rem + 0.7737vw, 1rem);
+}
+
+.copyright {
+  color: #830542;
+  text-align: center;
+  font-size: small;
 }
 </style>
