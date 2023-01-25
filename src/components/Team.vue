@@ -58,38 +58,4 @@ export default {
     height: 14.3px;
   }
 }
-.img-and-country #btn {
-  margin-left: auto;
-  color: #830542;
-}
-.img-and-country #btn:hover {
-  scale: 120%;
-  font-weight: 700;
-}
-
-[data-title]:hover:after {
-  opacity: 1;
-  transition: all 0.1s ease 0.5s;
-  visibility: visible;
-}
-[data-title]:after {
-  content: attr(data-title);
-  position: absolute;
-  top: -2.2em;
-  font-size: 10px;
-  right: 0;
-  padding: 0px 6px;
-  background-color: #830542;
-  color: gainsboro;
-  white-space: nowrap;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  opacity: 0;
-  z-index: 99999;
-  visibility: hidden;
-}
-[data-title] {
-  position: relative;
-}
 </style>
