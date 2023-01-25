@@ -51,6 +51,7 @@ const routes = [
       },
     ],
   },
+
   {
     path: "/matches",
     children: [
@@ -68,6 +69,27 @@ const routes = [
         path: ":id/edit",
         name: "edit_match",
         component: () => import("../views/MatchForm.vue"),
+      },
+    ],
+  },
+
+  {
+    path: "/results",
+    children: [
+      {
+        path: "",
+        name: "Results",
+        component: () => import("../views/Results.vue"),
+      },
+      {
+        path: "new",
+        name: "new_result",
+        component: () => import("../views/ResultsForm.vue"),
+      },
+      {
+        path: ":id/edit",
+        name: "edit_result",
+        component: () => import("../views/ResultsForm.vue"),
       },
     ],
   },
