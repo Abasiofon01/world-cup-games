@@ -70,11 +70,12 @@ export default {
           commit("SET_USER", response.data);
         })
         .catch(error => {
-          if (error.status === 401) {
+          if (error?.response.status === 401) {
             dispatch("signOutUser");
           } else {
             console.log(error?.response ?? error);
           }
+          return Promise.reject(error);
         });
     }
   }
