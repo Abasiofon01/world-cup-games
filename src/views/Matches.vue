@@ -48,7 +48,7 @@ import Layout from "../Layout/Layout.vue";
 import { mapActions } from "vuex";
 
 export default {
-  names: "Matches",
+  name: "Matches",
 
   components: {
     Layout,
@@ -58,7 +58,6 @@ export default {
     return {
       allResults: {},
       groupedResults: [],
-      matchById: {},
     };
   },
 
@@ -209,9 +208,7 @@ export default {
   .group-match-summary {
     gap: 10px;
   }
-}
 
-@media (max-width: 320px) {
   .team-and-score-wrapper {
     height: 25px;
   }
@@ -231,7 +228,7 @@ export default {
     gap: 4px;
   }
   .result-wrapper {
-    gap: 2px;
+    gap: 4px;
   }
 
   .team-and-score-wrapper {
