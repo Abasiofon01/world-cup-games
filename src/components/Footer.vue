@@ -53,7 +53,7 @@ footer {
 }
 .footer-links-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
