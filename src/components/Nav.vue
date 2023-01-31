@@ -20,21 +20,29 @@
   </nav>
 </template>
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { mapActions, useStore } from "vuex";
 export default {
   name: "Nav",
-  data() {
-    return {};
-  },
+
   setup() {
     let open = ref(false);
+    const store = useStore();
+
+    const signOut = () => store.dispatch("signOutUser");
+    const authenticated = computed(() => store.getters.auth.authenticated);
     const links = [
       { name: "teams", link: "/teams" },
       { name: "groups", link: "/groups" },
       { name: "matches", link: "/matches" },
       { name: "standings", link: "/standings" },
-      { name: "login", link: "/login" },
-      { name: "register", link: "/register" },
+      {
+        name: "register",
+        link: "/register",
+      },
+      authenticated
+        ? { name: "logout", link: "", actions: signOut() }
+        : { name: "login", link: "/login" },
     ];
 
     function ShowMenu() {
