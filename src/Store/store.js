@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import auth from "./auth";
 import { http } from "../services/axios";
 
 export const store = createStore({
@@ -98,5 +99,25 @@ export const store = createStore({
         return response.data.data;
       });
     },
+
+    async register(ctx) {
+      return http.post("register", { form }).then((response) => {
+        return response.data.data;
+      });
+    },
+    async login(ctx) {
+      return http.post("/login", { form }).then((response) => {
+        return response.data.data;
+      });
+    },
+    async logout(ctx) {
+      return http.post("logout", { form }).then((response) => {
+        return response.data.data;
+      });
+    },
+  },
+
+  modules: {
+    auth,
   },
 });
