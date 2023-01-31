@@ -15,7 +15,7 @@ const routes = [
     children: [
       {
         path: "",
-        name: "Teams",
+        name: "teams",
         component: () => import("../views/Teams.vue"),
       },
       {
@@ -36,7 +36,7 @@ const routes = [
     children: [
       {
         path: "",
-        name: "Groups",
+        name: "groups",
         component: () => import("../views/Groups.vue"),
       },
       {
@@ -57,7 +57,7 @@ const routes = [
     children: [
       {
         path: "",
-        name: "Matches",
+        name: "matches",
         component: () => import("../views/Matches.vue"),
       },
       {
@@ -78,7 +78,7 @@ const routes = [
     children: [
       {
         path: "",
-        name: "Results",
+        name: "results",
         component: () => import("../views/Results.vue"),
       },
       {
@@ -95,8 +95,31 @@ const routes = [
   },
 
   {
+    path: "/login",
+    name: "login",
+    component: () => import("../views/Login.vue"),
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: () => import("../views/Register.vue"),
+  },
+
+  {
+    path: "/forgot-password",
+    name: "forgot-password",
+    component: () => import("../views/ForgotPassword.vue"),
+  },
+
+  {
+    path: "/reset-password",
+    name: "reset-password",
+    component: () => import("../views/ResetPassword.vue"),
+  },
+
+  {
     path: "/standings",
-    name: "Standings",
+    name: "standings",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -108,4 +131,16 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+// router.beforeEach((to, from, next) => {
+//   if (to.path !== '/' && to.path !== '/register' && !isAuthenticated()) {
+//       return next({path: '/'})
+//   }
+//   return next()
+// })
+
+// function isAuthenticated() {
+//   return Boolean(localStorage.getItem('APP_DEMO_USER_TOKEN'))
+// }
+
 export default router;
