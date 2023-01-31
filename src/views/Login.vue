@@ -8,6 +8,7 @@
         name="user_name"
         placeholder="Username"
         required
+        autocomplete="username"
       />
 
       <input
@@ -16,6 +17,7 @@
         name="password"
         placeholder="Password"
         required
+        autocomplete="current-password"
       />
 
       <button type="submit" @click.prevent="onSubmit">Login</button>
@@ -38,27 +40,27 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+  import { mapActions } from "vuex";
 
-export default {
-  name: "Login",
+  export default {
+    name: "Login",
 
-  data() {
-    return {
-      form: {
-        username: "",
-        password: "",
-      },
-    };
-  },
-
-  methods: {
-    onSubmit() {
-      this.signIn(this.form);
-      this.$router.replace({ name: "teams" });
+    data() {
+      return {
+        form: {
+          username: "",
+          password: ""
+        }
+      };
     },
 
-    ...mapActions({ signIn: "auth/signIn" }),
-  },
-};
+    methods: {
+      onSubmit() {
+        this.signIn(this.form);
+        this.$router.replace({ name: "teams" });
+      },
+
+      ...mapActions({ signIn: "auth/signIn" })
+    }
+  };
 </script>

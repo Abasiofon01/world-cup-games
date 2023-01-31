@@ -8,6 +8,7 @@
         name="user_name"
         placeholder="Username"
         required
+        autocomplete="username"
       />
       <input
         v-model="form.email"
@@ -15,6 +16,7 @@
         name="email"
         placeholder="Email"
         required
+        autocomplete="email"
       />
       <input
         v-model="form.password"
@@ -22,6 +24,7 @@
         name="password"
         placeholder="Password"
         required
+        autocomplete="new-password"
       />
 
       <button @click.prevent="onSubmit">Register</button>
@@ -37,29 +40,32 @@
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
-import axios from "axios";
+  import { mapActions } from "vuex";
 
-export default {
-  data() {
-    return {
-      form: {
-        username: "",
-        email: "",
-        password: "",
-      },
-    };
-  },
-
-  methods: {
-    async onSubmit() {
-      let response = await axios.post(
-        "http://127.0.0.1:3333/register",
-        this.form
-      );
-      console.log(response.data.message);
+  export default {
+    data() {
+      return {
+        form: {
+          username: "",
+          email: "",
+          password: ""
+        }
+      };
     },
-  },
-};
+
+    methods: {
+      ...mapActions("auth", ["registerUser"]),
+
+      async onSubmit() {
+        await this.registerUser(this.form)
+          .then(response => {
+            console.log(response.data);
+          })
+          .catch(error => {
+            console.log(error.response);
+          });
+      }
+    }
+  };
 </script>
 <style lang="css"></style>

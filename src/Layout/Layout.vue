@@ -26,59 +26,59 @@
 </template>
 
 <script>
-export default {
-  name: "Layout",
+  export default {
+    name: "Layout",
 
-  props: {
-    wrapperClass: {
-      type: String,
-      required: true,
+    props: {
+      wrapperClass: {
+        type: String,
+        required: true
+      },
+      showNewBtn: {
+        type: Boolean,
+        default: true
+      },
+      showBackBtn: {
+        type: Boolean,
+        default: true
+      }
     },
-    showNewBtn: {
-      type: Boolean,
-      default: true,
-    },
-    showBackBtn: {
-      type: Boolean,
-      default: true,
-    },
-  },
 
-  methods: {
-    createNew() {
-      this.$emit("create-new");
-    },
-    goBack() {
-      this.$emit("go-back");
-    },
-  },
-};
+    methods: {
+      createNew() {
+        this.$emit("create-new");
+      },
+      goBack() {
+        this.$emit("go-back");
+      }
+    }
+  };
 </script>
 
 <style scoped>
-#btn {
-  padding: 5px 20px;
-  color: #830542;
-  background-color: gainsboro;
-  border-radius: 4px;
-  align-self: center;
-  display: inline;
-  margin-bottom: 18px;
-}
+  #btn {
+    padding: 5px 20px;
+    color: #830542;
+    background-color: gainsboro;
+    border-radius: 4px;
+    align-self: center;
+    display: inline;
+    margin-bottom: 18px;
+  }
 
-.icon-wrapper {
-  width: 25px;
-  background-color: gainsboro;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-}
+  .icon-wrapper {
+    width: 25px;
+    background-color: gainsboro;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  }
 
-#back_icon {
-  padding: 4px;
-  fill: #830542;
-  width: 25px;
-  height: 25px;
-}
+  #back_icon {
+    padding: 4px;
+    fill: #830542;
+    width: 25px;
+    height: 25px;
+  }
 </style>
