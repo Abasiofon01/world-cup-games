@@ -2,7 +2,7 @@
   <Layout
     :showNewBtn="false"
     wrapperClass="form-wrapper"
-    @go-back="$router.push({ name: 'Groups' })"
+    @go-back="$router.push({ name: 'groups' })"
   >
     <template #title> {{ headerTitle }} </template>
 
