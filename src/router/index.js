@@ -21,7 +21,7 @@ const routes = [
     name: "home",
     redirect() {
       return { name: "teams" };
-    }
+    },
   },
 
   {
@@ -30,21 +30,21 @@ const routes = [
       {
         path: "",
         name: "teams",
-        component: () => import("../views/Teams.vue")
+        component: () => import("../views/Teams.vue"),
       },
       {
         path: "new",
         name: "new_team",
         component: () => import("../views/TeamForm.vue"),
-        beforeEnter: authCheck
+        beforeEnter: authCheck,
       },
       {
         path: ":id/edit",
         name: "edit_team",
         component: () => import("../views/TeamForm.vue"),
-        beforeEnter: authCheck
-      }
-    ]
+        beforeEnter: authCheck,
+      },
+    ],
   },
 
   {
@@ -53,19 +53,21 @@ const routes = [
       {
         path: "",
         name: "groups",
-        component: () => import("../views/Groups.vue")
+        component: () => import("../views/Groups.vue"),
       },
       {
         path: "new",
         name: "new_group",
-        component: () => import("../views/GroupForm.vue")
+        component: () => import("../views/GroupForm.vue"),
+        beforeEnter: authCheck,
       },
       {
         path: ":id/edit",
         name: "edit_group",
-        component: () => import("../views/GroupForm.vue")
-      }
-    ]
+        component: () => import("../views/GroupForm.vue"),
+        beforeEnter: authCheck,
+      },
+    ],
   },
 
   {
@@ -74,19 +76,21 @@ const routes = [
       {
         path: "",
         name: "matches",
-        component: () => import("../views/Matches.vue")
+        component: () => import("../views/Matches.vue"),
       },
       {
         path: "new",
         name: "new_match",
-        component: () => import("../views/MatchForm.vue")
+        component: () => import("../views/MatchForm.vue"),
+        beforeEnter: authCheck,
       },
       {
         path: ":id/edit",
         name: "edit_match",
-        component: () => import("../views/MatchForm.vue")
-      }
-    ]
+        component: () => import("../views/MatchForm.vue"),
+        beforeEnter: authCheck,
+      },
+    ],
   },
 
   {
@@ -95,42 +99,44 @@ const routes = [
       {
         path: "",
         name: "results",
-        component: () => import("../views/Results.vue")
+        component: () => import("../views/Results.vue"),
       },
       {
         path: "new",
         name: "new_result",
-        component: () => import("../views/ResultsForm.vue")
+        component: () => import("../views/ResultsForm.vue"),
+        beforeEnter: authCheck,
       },
       {
         path: ":id/edit",
         name: "edit_result",
-        component: () => import("../views/ResultsForm.vue")
-      }
-    ]
+        component: () => import("../views/ResultsForm.vue"),
+        beforeEnter: authCheck,
+      },
+    ],
   },
 
   {
     path: "/login",
     name: "login",
-    component: () => import("../views/Login.vue")
+    component: () => import("../views/Login.vue"),
   },
   {
     path: "/register",
     name: "register",
-    component: () => import("../views/Register.vue")
+    component: () => import("../views/Register.vue"),
   },
 
   {
     path: "/forgot-password",
     name: "forgot-password",
-    component: () => import("../views/ForgotPassword.vue")
+    component: () => import("../views/ForgotPassword.vue"),
   },
 
   {
     path: "/reset-password",
     name: "reset-password",
-    component: () => import("../views/ResetPassword.vue")
+    component: () => import("../views/ResetPassword.vue"),
   },
 
   {
@@ -140,23 +146,12 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Standings.vue")
-  }
+      import(/* webpackChunkName: "about" */ "../views/Standings.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 });
-
-// router.beforeEach((to, from, next) => {
-//   if (to.path !== '/' && to.path !== '/register' && !isAuthenticated()) {
-//       return next({path: '/'})
-//   }
-//   return next()
-// })
-
-// function isAuthenticated() {
-//   return Boolean(localStorage.getItem('APP_DEMO_USER_TOKEN'))
-// }
 
 export default router;
