@@ -21,12 +21,15 @@
 </template>
 <script>
 export default {
+  name: "Footer",
   setup() {
     const links = [
-      { name: "TEAMS", link: "/teams" },
-      { name: "GROUPS", link: "/groups" },
-      { name: "MATCHES", link: "/matches" },
-      { name: "STANDINGS", link: "/standings" },
+      { name: "teams", link: "/teams" },
+      { name: "groups", link: "/groups" },
+      { name: "matches", link: "/matches" },
+      { name: "standings", link: "/standings" },
+      { name: "login", link: "/login" },
+      { name: "register", link: "/register" },
     ];
     return { links };
   },
@@ -56,6 +59,7 @@ footer {
 
 .footer-links {
   @apply font-bold m-2;
+  text-transform: uppercase;
   color: #830542;
   font-size: clamp(0.75rem, 0.6291rem + 0.7737vw, 1rem);
 }
